@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 struct list
@@ -26,4 +27,10 @@ class List
 
 int main()
 {
+    vector<int> a = {1, 2, 3};
+
+    cout << a.size() << endl;
+    cout << "";
+    int a = 1;
+    int b = 2;
 }
