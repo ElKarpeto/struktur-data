@@ -77,25 +77,29 @@ struct List
     {
         if (!isEmpty())
         {
-            Node *temp = head;
-            Node *nextNode = temp->next;
+            Node *currNode = head;
+            Node *prevNode = NULL;
 
-            if (nextNode == NULL)
+            // Traverse to the last node
+            while (currNode->next != NULL)
             {
-                free(temp);
+                prevNode = currNode;
+                currNode = currNode->next;
+            }
+
+            // If there is only one node
+            if (prevNode == NULL)
+            {
                 head = NULL;
-                _size--;
-
-                return;
             }
-
-            while ((nextNode->next != NULL))
+            else
             {
-                temp = temp->next;
+                // Remove the last node
+                prevNode->next = NULL;
             }
 
-            free(nextNode);
-            temp->next = NULL;
+            // Free the memory of the last node
+            free(currNode);
             _size--;
         }
     }
@@ -178,7 +182,7 @@ struct List
                 {
                     temp = temp->next;
                 }
-                return temp->next->data;
+                return temp->data;
             }
             else
             {
@@ -204,13 +208,13 @@ struct List
 
             Node *temp = head;
             int i = 0;
-            while (temp->next != NULL && i < index)
+            while ((temp->next != NULL) && (i < index))
             {
                 temp = temp->next;
                 i++;
             }
 
-            return temp->next->data;
+            return temp->data;
         }
 
         exit(-1);
@@ -248,7 +252,16 @@ int main()
     list1.pushBack(4);
     list1.pushBack(5);
 
-    list1.popBack();
+    list1.pushFront(0);
+    // list1.popBack();
+
+    list1.insertAt(3, 999);
+
+    list1.removeAt(3);
+
+    cout << list1.front() << endl;
+    cout << list1.back() << endl;
+    cout << list1.getAt(2) << endl;
 
     list1.display();
 
