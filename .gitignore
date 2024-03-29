@@ -1,13 +1,2 @@
-*.log
-*.tmp
-*.swp
-*.out
-*.exe
-*.o
-*.a
-*.bin
-*.prob
-/build/
-/bin/
-/lib/
-/.cph/
+*
+!*.cpp
