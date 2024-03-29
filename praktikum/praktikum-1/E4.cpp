@@ -1,7 +1,4 @@
-#include <iostream>
-#include <deque>
-#include <set>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
@@ -9,36 +6,38 @@ int main()
     int N, K;
     cin >> N >> K;
 
-    deque<int> messages;
-    set<int> friends;
-
-    for (int i = 0; i < N; ++i)
+    int arr[N];
+    for (int i = 0; i < N; i++)
     {
-        int Pi;
-        cin >> Pi;
-
-        // Jika teman sudah ada dalam set, abaikan pesan tersebut
-        if (friends.find(Pi) != friends.end())
-            continue;
-
-        // Jika jumlah obrolan sudah mencapai K, hapus obrolan terakhir
-        if (messages.size() == K)
-        {
-            int lastFriend = messages.back();
-            messages.pop_back();
-            friends.erase(lastFriend);
-        }
-
-        // Tambahkan ID teman ke set dan sisipkan ke depan deque
-        friends.insert(Pi);
-        messages.push_front(Pi);
+        cin >> arr[i];
     }
 
-    // Tampilkan hasil akhir
-    cout << messages.size() << endl;
-    for (int friendID : messages)
+    deque<int> chat;
+    map<int, int> cek;
+
+    for (int i = 0; i < N; i++)
     {
-        cout << friendID << " ";
+        if (cek[arr[i]] == 1)
+        {
+            continue;
+        }
+        else
+        {
+            if (chat.size() >= K)
+            {
+                cek[chat.front()] = 0;
+                chat.pop_front();
+            }
+            chat.push_back(arr[i]);
+            cek[arr[i]] = 1;
+        }
+    }
+
+    cout << chat.size() << endl;
+    while (!chat.empty())
+    {
+        cout << chat.back() << " ";
+        chat.pop_back();
     }
     cout << endl;
 

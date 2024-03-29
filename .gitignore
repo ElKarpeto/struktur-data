@@ -1,16 +1,5 @@
-# *.log
-# *.tmp
-# *.swp
-# *.out
-# *.exe
-# *.o
-# *.a
-# *.bin
-# *.prob
-# /build/
-# /bin/
-# /lib/
-# /.cph
-# /.vscode/
-
-*
+*.prob
+*.exe
+/.cph
+*.json
+*.bin
