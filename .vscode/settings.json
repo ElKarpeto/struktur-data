@@ -9,6 +9,14 @@
         "vector": "cpp",
         "iterator": "cpp",
         "scoped_allocator": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "ostream": "cpp",
+        "*.tcc": "cpp",
+        "bitset": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "functional": "cpp",
+        "ratio": "cpp",
+        "streambuf": "cpp"
     }
 }

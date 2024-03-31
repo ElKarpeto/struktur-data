@@ -1,11 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool bandingkan(char a, char b)
-{
-    return (a == b);
-}
-
 int main()
 {
     int x, y;
@@ -28,7 +23,7 @@ int main()
         arr1.push_back(element2[i]);
     }
 
-    while (!(arr1.empty() && arr2.empty()))
+    while (!(arr1.empty() || arr2.empty()))
     {
         if (arr1.front() == arr2.front())
         {
