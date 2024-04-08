@@ -3,29 +3,24 @@ using namespace std;
 
 int main()
 {
-    int n;
+    int n, m;
 
     cin >> n;
 
-    int arr[n];
-
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-
+    stack<int> arr1, arr2;
     int len = n / 2;
 
-    stack<int> arr1, arr2;
-
-    for (int i = 0; i < len; i++)
+    while (n--)
     {
-        arr1.push(arr[i]);
-    }
-
-    for (int i = len; i < n; i++)
-    {
-        arr2.push(arr[i]);
+        cin >> m;
+        if (n >= len)
+        {
+            arr1.push(m);
+        }
+        else
+        {
+            arr2.push(m);
+        }
     }
 
     while (!arr1.empty())
