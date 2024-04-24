@@ -17,20 +17,15 @@ int main()
     }
 
     int max = 0;
-    for (auto it = arr.begin(); it < arr.end(); it++)
+    int max_index = 0;
+    for (int i = 0; i < 10000; i++)
     {
-        if (*it > max)
+        if (arr[i] > max && i > max_index)
         {
-            max = *it;
+            max = arr[i];
+            max_index = i;
         }
     }
 
-    for (int i = 10000 - 1; i >= 0; i--)
-    {
-        if (arr[i] == max)
-        {
-            cout << i << endl;
-            break;
-        }
-    }
+    cout << max_index << endl;
 }
